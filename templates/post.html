@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 100px auto 20px; /* Adjusted to avoid navbar overlap */
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+/* Styling for the comment button */
+.btn-secondary {
+    background-color: #007bff;  /* A subtle grey color */
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;  /* Darker grey for hover effect */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+        .btn-danger {
+            background-color: #5a6268;;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .blockquote-footer {
+            font-size: 0.9rem;
+            color: #888;
+            text-align: right;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .comment-container {
+            margin-top: 30px;
+        }
+
+        .like-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .like-button:hover {
+            background-color: #218838;
+        }
+
+        .navbar {
+    background-color: #2c3e50;
+    padding: 10px 20px;  /* Reduced padding to prevent excessive height */
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+.navbar-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #ff9900;
+}
+
+
+        .btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <p><strong>By:</strong> {{ post.author.username }}</p>
+        {% if 'is_admin' in session and session['is_admin'] %}
+            <a href="{{ url_for('delete_post', post_id=post.id) }}" class="btn btn-danger">Delete Post</a>
+        {% endif %}
+        <p><strong>Likes:</strong> {{ likes_count }}</p>
+        <form method="POST">
+            <button type="submit" name="like" class="btn btn-primary">
+                {% if user_has_liked %}
+                    Dislike
+                {% else %}
+                    Like
+                {% endif %}
+            </button>
+        </form>
+
+        <hr>
+
+        <h2>Comments</h2>
+
+        <form method="POST">
+            <label for="content">Add a comment:</label>
+            <textarea name="content" rows="3" required></textarea><br>
+            <button type="submit" class="btn btn-secondary">Comment</button>
+        </form>
+
+        <div class="comment-container">
+            {% for comment in post.comments %}
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{ comment.content }}</p>
+                    <footer class="blockquote-footer">{{ comment.author.username }}</footer>
+                    {% if 'is_admin' in session and session['is_admin'] %}
+                    <a href="{{ url_for('delete_comment', comment_id=comment.id) }}" class="btn btn-danger btn-sm">Delete Comment</a> 
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
