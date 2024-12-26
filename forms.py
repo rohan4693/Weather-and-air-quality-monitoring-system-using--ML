@@ -4,19 +4,7 @@ from wtforms.validators import DataRequired
 from wtforms import StringField,PasswordField,BooleanField,SubmitField
 from wtforms.validators import DataRequired,Email,EqualTo,Length
 
-class RegistrationForm(FlaskForm):
-    username = StringField('Username',validators=[DataRequired()])
-    email = StringField('Email',validators=[DataRequired(),Email()])
-    password = PasswordField('Password',validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password',validators=[DataRequired()])
-    name = StringField('Name', validators=[DataRequired(), Length(min=2, max=100)])  # Add Name field
-    city = StringField('City', validators=[DataRequired(), Length(min=2, max=100)])  # Add City field
-    submit = SubmitField('Sign Up')
-class LoginForm(FlaskForm):
-    email = StringField('Email',validators=[DataRequired(),Email()])
-    password = PasswordField('Password',validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
+
 class CarbonFootPrintForm(FlaskForm):
     body_type = SelectField('Body Type', choices=[
         ('underweight', 'Underweight'),
