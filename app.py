@@ -6,7 +6,7 @@ from datetime import datetime,timedelta,timezone
 from flask_wtf import FlaskForm
 from wtforms import SelectField, DecimalField
 from wtforms.validators import DataRequired, NumberRange
-from forms import CarbonFootPrintForm,RegistrationForm,LoginForm
+from forms import CarbonFootPrintForm
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
