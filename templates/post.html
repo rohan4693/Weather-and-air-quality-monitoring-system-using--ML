@@ -243,7 +243,7 @@ textarea {
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">{{ comment.content }}</p>
-                    <footer class="blockquote-footer">{{ comment.author.username }}</footer>
+                    <footer class="blockquote-footer">-<b>{{ comment.author.name }}</b></footer>
                     {% if 'is_admin' in session and session['is_admin'] %}
                     <a href="{{ url_for('delete_comment', comment_id=comment.id) }}" class="btn btn-danger btn-sm">Delete Comment</a> 
                     {% endif %}
