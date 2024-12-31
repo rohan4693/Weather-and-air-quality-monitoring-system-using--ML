@@ -7,222 +7,300 @@
     <title>Community</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
 
-        /* Navbar Styling */
-        .navbar {
-            background-color: #2c3e50;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* Navbar Styling */
+.navbar {
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .navbar-links {
-            list-style-type: none;
-            display: flex;
-        }
+.navbar-links {
+    list-style-type: none;
+    display: flex;
+}
 
-        .navbar-links li {
-            margin-left: 20px;
-        }
+.navbar-links li {
+    margin-left: 20px;
+}
 
-        .navbar-links a {
-            color: #ecf0f1;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 8px 15px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+.navbar-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        .navbar-links a:hover {
-            background-color: #34495e;
-            color: #f39c12;
-            text-decoration: none ;
-        }
+.navbar-links a:hover {
+    background-color: #34495e;
+    color: #f39c12;
+    text-decoration: none;
+}
 
-        /* Container for content */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+/* Container for content */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-        h1 {
-            font-size: 2rem;
-            color: #34495e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+h1 {
+    font-size: 2rem;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
+h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
 
-        /* Form Styling */
-        .form-label {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            display: block;
-            color: #555;
-        }
+/* Form Styling */
+.form-label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+}
 
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-            background-color: #fafafa;
-            transition: border-color 0.3s ease;
-        }
+.form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
 
-        .form-control:focus {
-            border-color: #3498db;
-            outline: none;
-            background-color: #eef7fd;
-        }
+.form-control:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #eef7fd;
+}
 
-        .btn-primary {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            text-decoration: none; /* Removed text decoration */
-        }
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Removed text decoration */
+}
 
-        .btn-primary:hover {
-            background-color: #2980b9;
-        }
+.btn-primary:hover {
+    background-color: #2980b9;
+}
 
-        /* Card Styling */
-        .card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            padding: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-        .card-title {
-            font-size: 1.3rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+.card-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
 
-        .card-text {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 15px;
-        }
+.card-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
 
-        .btn-view {
-            background-color: #2ecc71;
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
+.btn-view {
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
 
-        .btn-view:hover {
-            background-color: #27ae60;
-            text-decoration: none;
-        }
+.btn-view:hover {
+    background-color: #27ae60;
+    text-decoration: none;
+}
 
-        .btn-delete {
-            background-color: #5a6268;
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-            margin-right: 10px;
-        }
+.btn-delete {
+    background-color: #5a6268;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 
-        .btn-delete:hover {
-            background-color: #c0392b;
-            text-decoration: none;
-       
-        .post-author {
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 0.9rem;
-        }
+.btn-delete:hover {
+    background-color: #c0392b;
+    text-decoration: none;
+}
 
-        
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+.post-author {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 0.9rem;
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .navbar-links {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+a:hover {
+    text-decoration: underline;
+}
 
-            .navbar-links li {
-                margin-left: 0;
-                margin-bottom: 10px;
-            }
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row;  /* Keep items horizontal */
+        justify-content: center;  /* Center navbar items horizontally */
+        padding: 10px 15px;
+    }
 
-            .container {
-                padding: 15px;
-            }
+    .navbar-links {
+        display: flex;
+        justify-content: center; /* Keep navbar items horizontally centered */
+        padding: 0;
+        margin: 0;
+    }
 
-            .form-control {
-                font-size: 0.9rem;
-                padding: 10px;
-            }
+    .navbar-links li {
+        margin-left: 15px;  /* Adjusted margin for horizontal spacing */
+        margin-bottom: 0;  /* No vertical spacing */
+    }
 
-            .btn-primary {
-                padding: 10px 18px;
-                font-size: 0.9rem;
-            }
-        }
+    .navbar-links a {
+        padding: 10px;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* Content Container */
+    .container {
+        padding: 15px;
+    }
+
+    /* Form inputs */
+    .form-control {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .btn-primary {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    /* Card Styling */
+    .card {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .btn-view,
+    .btn-delete {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* For very small screens like phones in portrait mode */
+@media (max-width: 480px) {
+    .navbar-links a {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .form-control {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .btn-primary {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.85rem;
+    }
+
+    .btn-view,
+    .btn-delete {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+
     </style>
 </head>
 
@@ -230,7 +308,7 @@
     <nav class="navbar">
         <ul class="navbar-links">
             <li><a href="/leaderboard">Leaderboard</a></li>
-            <li><a href="/community">Community</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/logout">Logout</a></li>
         </ul>
     </nav>
