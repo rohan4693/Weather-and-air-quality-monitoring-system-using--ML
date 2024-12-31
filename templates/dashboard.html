@@ -8,186 +8,288 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(to bottom, #2193b0, #6dd5ed);
-            color: #fff;
-            font-family: Arial, sans-serif;
-        }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
 
-       
-        nav {
-            width: 100%;
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            padding: 10px 0;
-        }
+nav {
+    width: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 10px 0;
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-        nav ul li {
-            margin: 0 20px;
-        }
+nav ul li {
+    margin: 0 20px;
+}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
 
-        nav ul li a:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
+nav ul li a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            text-align: center;
-            max-width: 800px;
-            margin-top: 80px; 
-        }
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    text-align: center;
+    max-width: 800px;
+    margin-top: 80px; 
+}
 
-        h1, h2 {
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-            color: #333;
-        }
+h1, h2 {
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: #333;
+}
 
-        .inputs {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+.inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
 
-        input {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            flex: 1;
-            max-width: 300px;
-        }
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    max-width: 300px;
+}
 
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        button:hover {
-            background-color: #0056b3;
-        }
+button:hover {
+    background-color: #0056b3;
+}
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
 
-        .grid-item {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: #333;
-        }
+.grid-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
 
-        .news-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
-            align-items: stretch;  
-            max-height: 500px; 
-            overflow: auto;
-        }
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    align-items: stretch;
+    max-height: 500px;
+    overflow-y: auto;  
+}
 
-        .news-item {
-            display: flex;
-            gap: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap;
-            width: 100%;  
-        }
+.news-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    align-items: flex-start;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        .news-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
+.news-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
 
-        .news-content {
-            flex: 1;
-            min-width: 0;
-            overflow:hidden
-        }
+.news-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: calc(100% - 120px);
+}
 
-        .news-content h4 {
-            margin: 0 0 8px;
-            font-size: 16px;
-            text-overflow: ellipsis; /* Ensure long titles don't overflow */
-            white-space: nowrap;  /* Ensure title text is one line */
-            overflow: hidden;
-        }
+.news-content h4 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
 
-        .news-content p {
-            margin: 0;
-            font-style: italic;
-            color: black;
-            white-space: nowrap; /* Ensure description doesn't break lines */
-            overflow: hidden; /* Hide overflow text */
-            text-overflow: ellipsis;
-        }
+.news-content p {
+    margin: 0;
+    font-style: italic;
+    color: black;
+    white-space: normal;
+    overflow: hidden;
+}
 
-        canvas {
-            margin-top: 20px;
-        }
+canvas {
+    margin-top: 20px;
+    width: 100%;
+}
 
-        #loader {
-            color: blue;
-            font-size: 1.2rem;
+#loader {
+    color: blue;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .inputs {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grid-item {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .news-content h4 {
+        font-size: 14px;
+    }
+
+    .news-content p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-item {
+        font-size: 0.9rem;
+    }
+
+    input, button {
+        max-width: 100%;
+    }
+
+    .news-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+    .news-image {
+        width: 80px;
+        height: 80px;  
+    }
+
+    .news-content h4 {
+        font-size: 14px;  
+
+    .news-content p {
+        font-size: 12px;  
+        
+    }
+}
+        
+
+        @media (max-width: 480px) {
+            h1,
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-item {
+                font-size: 0.9rem;
+            }
+
+            input,
+            button {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Top Navbar -->
+    
     <nav>
         <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -196,7 +298,7 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    
     <div class="container">
         <h1>Weather & Environment Dashboard</h1>
         <div class="inputs">
@@ -205,7 +307,7 @@
         </div>
         <div id="loader" style="display:none;">Fetching data...</div>
         <div class="grid-container" id="weatherContainer">
-            <!-- Initially display all parameters with "N/A" or placeholders -->
+            
             <div class="grid-item"><h4>Temperature</h4><p id="temp">N/A</p></div>
             <div class="grid-item"><h4>Feels Like</h4><p id="feelsLike">N/A</p></div>
             <div class="grid-item"><h4>Humidity</h4><p id="humidity">N/A</p></div>
@@ -267,7 +369,7 @@
             const sunset = new Date(data.sys.sunset * 1000).toLocaleTimeString();
             const aqi = data.aqi_status || 'N/A';
 
-            // Update the grid with the actual data
+          
             document.getElementById('temp').innerText = data.main.temp + "°C";
             document.getElementById('feelsLike').innerText = data.main.feels_like + "°C";
             document.getElementById('humidity').innerText = data.main.humidity + "%";
@@ -281,7 +383,7 @@
 
         async function fetchNews(city) {
             const newsContainer = document.getElementById('newsContainer');
-            newsContainer.innerHTML = '';  // Clear previous content
+            newsContainer.innerHTML = '';  
 
             try {
                 const newsUrl = `/api/news?city=${city}`;
@@ -379,8 +481,8 @@
                 }
             });
         }
-
     </script>
 </body>
 
 </html>
+
