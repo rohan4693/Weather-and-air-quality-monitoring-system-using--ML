@@ -190,9 +190,31 @@ canvas {
 
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        justify-content: center;
+        padding: 10px 0;
     }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+
+    .container {
+        margin-top: 100px; /* Add space between the navbar and the heading */
+    }
+
 
     .grid-container {
         grid-template-columns: 1fr 1fr;
@@ -485,4 +507,3 @@ canvas {
 </body>
 
 </html>
-
