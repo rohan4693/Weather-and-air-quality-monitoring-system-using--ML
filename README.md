@@ -30,7 +30,7 @@
 - **SQLAlchemy**: Use SQLAlchemy for database management.
 - **Pandas**: Use Pandas for data manipulation and storage.
 
-### Team Member
+### Team Members:
  - **Dharshana**
  - **Rohan Singh**
 
